@@ -28,3 +28,29 @@
         return operator(num1, num2);
     }
 
+// function display value
+    let display = document.querySelector('#display');
+    let buttons = document.querySelectorAll('.button');
+    
+    let displayValue = 0;
+    let operator;
+
+    buttons.forEach(item => {
+        item.addEventListener("click", (event) => {
+            let input = event.currentTarget.value;
+            if (isNaN(input)) {
+                operator = input;
+            } else {
+                if (input != 0 || displayValue !== 0) { // avoid user input several 0s in front of number
+                    displayValue += input;
+                    display.innerText = Number(displayValue);
+                }           
+            }
+            console.log(operator);
+            console.log(displayValue);
+        });
+    });
+
+
+// check operator
+    
